@@ -1,0 +1,10 @@
+{
+  "name" : "facedom",
+  "version" : "0.0.1",
+  "author" : "Steven Klise",
+  "description" : "stream FaceTracker data to webpage and move the dom into a face",
+  "dependencies" : {
+    "express" : "latest",
+    "socket.io" : ""
+  }
+}
