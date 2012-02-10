@@ -23,29 +23,10 @@
 
   oscServer = new osc.Server(1337, '0.0.0.0');
 
-  oscServer.on("message", function(msg, rinfo) {
-    var json;
-    console.log("TUIO message:");
-    console.log(msg);
-    json = JSON.parse(msg[1]);
-    console.log(json);
-    m = msg;
-    return newmessage = true;
-  });
-
   io.sockets.on('connection', function(socket) {
-    var json;
-    if (newmessage) {
-      socket.emit("detection", newmessage);
-      try {
-        json = JSON.parse(m);
-        socket.emit('news', json);
-      } catch (error) {
-        console.log("skiping" + error);
-        socket.emit('news', "hi");
-      }
-      return newmessage = false;
-    }
+    return oscServer.on("message", function(msg, rinfo) {
+      return socket.emit('news', msg);
+    });
   });
 
   app.configure(function() {
