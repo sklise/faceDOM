@@ -1,15 +1,19 @@
 (function() {
-  var app, fs, io, m, newmessage, osc, oscServer, sys;
+  var app, express, fs, gsock, io, m, newmessage, osc, oscServer, sys;
 
   sys = require('sys');
 
   fs = require('fs');
 
-  app = require('express').createServer();
+  express = require('express');
+
+  app = express.createServer();
 
   io = require('socket.io').listen(app);
 
   app.listen(3000);
+
+  gsock = '';
 
   osc = require('./lib/osc');
 
@@ -20,26 +24,32 @@
   oscServer = new osc.Server(1337, '0.0.0.0');
 
   oscServer.on("message", function(msg, rinfo) {
+    var json;
     console.log("TUIO message:");
     console.log(msg);
+    json = JSON.parse(msg[1]);
+    console.log(json);
     m = msg;
-    newmessage = true;
-    return io.sockets.on('connection', function(socket) {
-      socket.emit('news', {
-        hello: 'world'
-      });
-      if (newmessage) {
-        socket.emit('news', m);
-        newmessage = !newmessage;
-      }
-      return socket.on('my other event', function(data) {
-        return console.log(data);
-      });
-    });
+    return newmessage = true;
   });
 
-  app.get('/', function(req, res) {
-    return res.sendfile(__dirname + '/index.html');
+  io.sockets.on('connection', function(socket) {
+    var json;
+    if (newmessage) {
+      socket.emit("detection", newmessage);
+      try {
+        json = JSON.parse(m);
+        socket.emit('news', json);
+      } catch (error) {
+        console.log("skiping" + error);
+        socket.emit('news', "hi");
+      }
+      return newmessage = false;
+    }
+  });
+
+  app.configure(function() {
+    return app.use(express.static(__dirname + '/public'));
   });
 
 }).call(this);
