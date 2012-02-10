@@ -1,10 +1,161 @@
 <html>
   <head>
-    <title>FaceDOM</title>
-  </head>
-  <body>
+    <title>openFrameworks</title>
+
+    <link href="http://openframeworks.cc/css/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="http://openframeworks.cc/css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" type="text/css" href="http://openframeworks.cc/css/style.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="http://openframeworks.cc/css/print.css" media="print" />
+    <link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
+    <link rel="search" type="application/opensearchdescription+xml" href="http://openframeworks.cc/opensearch.xml" title="openFrameworks" />
+
+    <link rel="shortcut icon" href="http://openframeworks.cc/favicon.ico" />
+    <link rel="icon" href="http://openframeworks.cc/favicon.ico" type="image/x-icon" />
     <script src="/socket.io/socket.io.js"></script>
     <script src="/jquery.min.js"></script>
     <script src="/app.js"></script>
+
+    <style>
+    #face {
+      position: relative;
+      min-width: 640px;
+      min-height: 480px;
+    }
+    </style>
+  </head>
+  <body>
+
+ 	<script type="text/javascript" src="http://cloud.github.com/downloads/malsup/cycle/jquery.cycle.all.latest.js"></script>
+	
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('#myslides').cycle({
+			speed: 1100,
+			timeout: 2000
+		});
+	});
+	</script>
+
+
+  </head>
+  <body>
+    <div id="content">
+      <div id="head">
+      		<div id="head-left">
+      			<a href="http://openframeworks.cc" class="nohover"><img src="http://openframeworks.cc/images/ofw-logo.png" border="0" alt="openFrameworks" /></a>
+      		</div>
+      		<div id="head-right">
+      		<ul>
+  	        <li><a href="http://openframeworks.cc/about" class="active">about</a></li>
+  	        <li><a href="http://openframeworks.cc/download" class="" >download</a></li>
+  	        <li><a href="http://openframeworks.cc/documentation" class="">documentation</a></li>
+  	        <li><a href="http://openframeworks.cc/gallery" class="">gallery</a></li>
+  	        <li><a href="http://openframeworks.cc/community" class="">community</a></li> 
+      		</ul>
+      		<ul class="menu-externals">
+      			<li><span class="external-dot"> ></span>&nbsp;<a href="http://forum.openframeworks.cc/index.php" target="_blank">forum</a></li>
+      			<li><span class="external-dot"> ></span>&nbsp;<a href="http://ofxaddons.com" target="_blank">addons</a></li>
+      			<li><span class="external-dot"> ></span>&nbsp;<a href="http://wiki.openframeworks.cc/" target="_blank">wiki</a></li>
+      			<li><span class="external-dot"> ></span>&nbsp;<a href="http://github.com/openframeworks/openFrameworks" target="_blank">github</a></li>
+      			<li><span class="external-dot"> ></span>&nbsp;<a href="http://openframeworks.cc/list-info" target="_blank">mailing list</a></li>
+      		</ul>
+      		</div>
+      </div><!-- head -->
+            <div id="body-wrap">
+            		<div class="page-left-wide">
+              
+        <h1>about</h1>
+
+      <div id="myslides">
+      <img src="http://www.openframeworks.cc/about/0.jpg" />
+      <img src="http://www.openframeworks.cc/about/1.jpg" />
+      <img src="http://www.openframeworks.cc/about/2.jpg" />
+      <img src="http://www.openframeworks.cc/about/3.jpg" />
+      <img src="http://www.openframeworks.cc/about/4.jpg" />
+      <img src="http://www.openframeworks.cc/about/5.jpg" />
+      <img src="http://www.openframeworks.cc/about/6.jpg" />
+      <img src="http://www.openframeworks.cc/about/7.jpg" />
+      <img src="http://www.openframeworks.cc/about/8.jpg" />
+      </div>
+
+      <div id="face">
+
+        <p>openFrameworks is an <a href="license.html">open source</a> <a class="part right-eye" href="https://en.wikipedia.org/wiki/C%2B%2B">C++</a> toolkit designed to assist the creative <span class="part right-eybrow">process</span> by providing a simple and intuitive framework for experimentation. The toolkit is designed to work as a general purpose glue, and wraps together several commonly used libraries, including:</p>
+        <ul>
+          <li><a href="http://www.opengl.org/">OpenGL</a>, <a href="http://glew.sourceforge.net/">GLEW</a>, <a href="http://www.opengl.org/resources/libraries/glut/">GLUT</a>, <a href="https://code.google.com/p/libtess2/">libtess2</a> and <a href="http://cairographics.org/">cairo</a> for graphics</li>
+          <li><a href="http://www.music.mcgill.ca/~gary/rtaudio/">rtAudio</a>, <a href="http://www.portaudio.com/">PortAudio</a> or <a href="http://www.fmod.org/">FMOD</a>  and <a href="http://kissfft.sourceforge.net/">Kiss FFT</a> for audio input, output and analysis</li>
+          <li><a href="http://freetype.sourceforge.net/index2.html">FreeType</a> for fonts</li>
+          <li><a href="http://freeimage.sourceforge.net/">FreeImage</a> for image saving and loading</li>
+          <li><a href="http://developer.apple.com/quicktime/">Quicktime</a> and <a href="https://github.com/ofTheo/videoInput">videoInput</a> for video playback and grabbing</li>
+          <li><a href="http://pocoproject.org/">Poco</a> <span class="part left-eye">for</span> a variety of utilities</li>
+        </ul>
+        <p>The code is written to be <span class="part left-eyebrow">massively</span> cross-compatible. Right now we support five operating systems (Windows, <span class="part left-eye">OSX,</span> Linux, iOS, Android) and four IDEs (XCode, Code::Blocks, and Visual Studio and Eclipse). The API is designed to be minimal and easy to grasp.</p>
+        <p>Simply put, openFrameworks is a tool that <span class="part mouth-inner">makes</span> it much easier to make things with code. We find it super useful, and we hope you do too.</p>
+        <p>openFrameworks is actively developed by <a href="http://thesystemis.com/">Zach Lieberman</a>, <a href="http://muonics.net/">Theodore Watson</a>, and <a href="http://arturocastro.net/">Arturo Castro</a>, with help from the <a href="../community/">OF community</a>. openFrameworks is indebted to two significant precursors: the <a href="http://processing.org/">Processing <span class="part mouth-outer">development</span> environment</a>, created by <a href="http://reas.com/">Casey Reas</a>, <a href="http://benfry.com/">Ben Fry</a> and the Processing community; and the <span class="part right-eye">ACU</span> Toolkit, a privately distributed C++ library developed by Ben Fry and others in the <a href="http://acg.media.mit.edu/">MIT Media Lab's Aesthetics and Computation Group</a>.</p>
+      
+      <hr />
+      <h2>design philosophy</h2>
+      <p>openFrameworks development is <strong>distributed</strong>. It thrives on the contributions of <a href="https://github.com/openframeworks/openFrameworks/contributors">many people</a>, who engage in <a href="http://forum.openframeworks.cc/">frequent discussion</a>, and collaborate on <a href="http://ofxaddons.com/">addons</a> and <a href="../gallery">projects</a>. We encourage people to make openFrameworks their own, and contribute to the ecosystem.</p>
+      
+      </div>
+      
+      <p>openFrameworks is <strong>consistent</strong> and <strong>intuitive</strong>: it should operate on the principle of least surprise, so that what you learn about one part of openFrameworks can be applied to other parts of it. Beginners can use openFrameworks to learn about common programming patterns, and advanced users will be able to apply their experience from other languages and toolkits.</p>
+      <p>openFrameworks tries to balance <strong>usability</strong> and <strong>simplicity</strong>. The earliest versions of openFrameworks used the core as a tool for teaching C++ and OpenGL, but over time the examples have become the best way to learn while the core takes advantage of more advanced features. </p>
+      <p>openFrameworks is a <strong>cross-platform</strong> toolkit. openFrameworks supports as many development environments and operating systems as possible. When you download openFrameworks, you can pick your platform and development environment of choice, and have projects and examples ready to learn from and play with. Difficult to port code is kept out of the core, and kept in addons instead.</p>
+      <p>openFrameworks is <strong>powerful</strong>: it allows you to leverage advanced libraries like OpenCV, use hardware like your graphics card efficiently, and connect peripherals like cameras and other devices.</p>
+      <p>openFrameworks is <strong>extensible</strong>. When you find something missing from openFrameworks, it's easy to create addons that extend it. The core addons for openFrameworks generally wrap libraries rather than solving problems in novel ways. When openFrameworks wraps libraries, the libraries are left exposed for further hacking.</p>
+      <hr />
+      <h2>faq</h2>
+      <p><strong>Why create another library for C++, since many libraries exist?</strong></p>
+      <p>There are plenty of libraries that exist make it easier to make software, especially with OpenGL. For example, ogre, irrlicht, JUCE, SDL, wxWindows, etc.</p>
+      <p>Originally, openFrameworks was meant to provide a "bare-bones" alternative. We wanted to write a library that would be the bare minimum necessary to get started doing audio-visual work with C++.</p>
+      <p>Over time, openFrameworks has evolved into a much more robust toolkit. Now, one of the biggest differences is audience. Our intended audience are folks using computers for creative, artistic expression, and who would like low level access to the data inside of media in order manipulate, analyze or explore.</p>
+      <p><strong>Why did you choose to wrap this library?</strong></p>
+      <p>We chose to work with the libraries that in our experience provide the cleanest and simplest API, the most generous licenses, and the easiest integration. </p>
+      <p>For example, we chose GLUT as the windowing library. Primarily, because it's fairly universal, has a reasonably generous license, and it's rare to find a compiler or platform that is incompatible. We have used other windowing toolkits, such as glfw and wxWindows, and even hooked them up with openFrameworks, but in the end, we decided to go with the one of the easiest to get up and running.</p>
+      <p><strong>Where can I see the latest version of openFrameworks?</strong></p>
+      <p>The most recent release is available from the <a href="../downloads">downloads</a> page, which is also available on <a href="https://github.com/openframeworks/openFrameworks/">github</a>. The absolutely most recent version of openFrameworks is located in the <a href="https://github.com/openframeworks/openFrameworks/tree/develop">develop branch</a>. For more information about building OF from Github, see the <a href="https://github.com/openframeworks/openFrameworks/blob/master/readme.txt">readme</a>. For more information about contributing to Github, see <a href="https://github.com/openframeworks/openFrameworks/wiki/openFrameworks-git-workflow">this document</a>.</p>
+      <p><strong>How can I help?</strong></p>
+      <p>By making addons, helping improve the documentation and most importantly, by making tutorials or instructions. If you are using OF to make interesting things, post as much source, info and ideas as you can. If you are beginning, take notes about what's confusing and join us on the forum to ask questions and see what people are doing/thinking.</p>
+      <p><strong>Why is openFrameworks distributed as source instead of binary?</strong></p>
+      <p>For several reasons &mdash; first, it is practical. Because openFrameworks is still a work in progress, we will be making changes to it as we go. By keeping the code visible, it makes those changes a lot easier, and we get better feedback about problems and confusions. Second, it's educational, in that it gives the curious a good starting point for learning about C++ library wrangling. Third, it's an active invitation for users of openFrameworks to change, modify and reconfigure the library to their tastes or whims.</p>
+      <p><strong>How can I learn C++?</strong></p>
+      <p>We don't really expect that openFrameworks should be used as a teaching tool for C++, but we imagine that it might be a "first step" for those interested in dabbling with C++. We promote an active community on the <a href="http://forum.openframeworks.cc/">forum</a>, so we would recommend you post some questions there. We would also recommend: </p>
+      <ul>
+      <li><a href="http://www.itee.uq.edu.au/~comp3300/Resources/C_C++_notes.pdf">C and C++ in 5 days</a> by Philip Machanick, which is one of the best documents we've seen about learning C++ (and in 5 days, no less!).</li>
+      <li><a href="http://wiki.openframeworks.cc/index.php?title=OF_for_Processing_users">OF for processing users</a> by Zach Gage, for those transitioning from Processing.</li>
+      <li><a href="http://www.4p8.com/eric.brasseur/cppcen.html">C++ tutorial for C users</a> for those transitioning from C.</li>
+      <li><a href="http://oreilly.com/catalog/9780596154141/">Programming Interactivity</a> by Joshua Noble, which covers openFrameworks 0.062 as well as Processing and Arduino.</li>
+      <li><a href="http://stackoverflow.com/">StackOverflow</a> is a great community for asking general and more esoteric questions.</li>
+      <li><a href="http://www.parashift.com/c++-faq-lite/index.html">C++ FAQ</a> by Marshall Cline, and the <a href="http://yosefk.com/c++fqa/index.html">C++ FQA Lite</a> by Yossi Kreinin.</li>
+      <li><a href="http://www.cppreference.com/wiki/">cppreference.com/wiki/</a> is a good Standard Template Library reference.</li>
+      <li><a href="http://cplusplus.com">cplusplus.com</a> has a great <a href="http://www.cplusplus.com/doc/tutorial/">language tutorial</a> and <a href="http://www.cplusplus.com/reference/">reference</a>.</li>
+      <li><a href="http://cprogramming.com/">cprogramming.com</a> has a lot of tutorials.</li>
+      </ul>
+
+                  </div>
+            </div>
+            <div id="footer">
+        
+        <p id="credits">
+
+      Last updated 
+  
+      Wednesday, 08 February 2012 00:06:43 UTC
+      &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/openframeworks/ofSite/commit/
+
+      3c5b3a80b3365019d41482f0e682663bd125a3d7
+      ">
+
+      3c5b3a80b3365019d41482f0e682663bd125a3d7
+      </a>
+
+      <!--br/>RSS feeds for <a href="/blog/feed">Entries</a-->
+
+      <br/>
+
+      </p>
+
   </body>
 </html>
