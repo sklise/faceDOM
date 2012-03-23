@@ -19,7 +19,11 @@
 
   io.sockets.on('connection', function(socket) {
     return oscServer.on("message", function(msg, rinfo) {
-      if (msg.length === 15) return socket.emit('raw', msg[14].slice(1, 133));
+      if (msg.length === 15) {
+        return socket.emit('raw', msg[14].slice(1, 133));
+      } else {
+        return socket.emit('no-face', "where'd you go?");
+      }
     });
   });
 

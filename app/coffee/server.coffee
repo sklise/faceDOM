@@ -17,6 +17,8 @@ io.sockets.on 'connection', (socket) ->
   oscServer.on "message", (msg, rinfo) ->
     if msg.length == 15
       socket.emit 'raw', msg[14][1..132]
+    else
+      socket.emit 'no-face', "where'd you go?"
 
 app.configure ->
   # Setup static file server

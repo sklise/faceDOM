@@ -51,15 +51,17 @@
         }
       });
     });
-    return $(div).html(splitInner.join(' '));
+    window.parsed = splitInner.join(' ');
+    return $(div).html(parsed);
   };
 
   jQuery(function() {
     var socket;
     selectDiv();
     socket = io.connect('http://localhost');
-    return socket.on('raw', function(data) {
+    socket.on('raw', function(data) {
       var half, _i, _results;
+      if (window.isDivSelected) $(window.hoveredElem).html(window.parsed);
       half = data.length / 2;
       return _.each((function() {
         _results = [];
@@ -68,6 +70,9 @@
       }).apply(this), function(i) {
         return $(".element-" + i).css('position', 'absolute').css('left', data[2 * i]).css('top', data[2 * i + 1]);
       });
+    });
+    return socket.on('no-face', function(data) {
+      if (window.isDivSelected) return $(window.hoveredElem).html(window.rawInner);
     });
   });
 
