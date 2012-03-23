@@ -6,18 +6,19 @@ io = require('socket.io').listen(app)
 
 app.listen(3000)
 
-gsock = ''
+# node-osc, not quite a module
+# https://github.com/hanshuebner/node-osc
+osc = require('./lib/osc')
 
-osc = require('./lib/osc');
-
-m = ''
-newmessage = false
-oscServer = new osc.Server(1337, '0.0.0.0')
+# Setup oscServer ot listen on localhost port 8338
+oscServer = new osc.Server(8338, '0.0.0.0')
 
 io.sockets.on 'connection', (socket) ->
   oscServer.on "message", (msg, rinfo) ->
-    socket.emit 'news', msg
+    if msg.length == 15
+      socket.emit 'raw', msg[14][1..132]
 
 app.configure ->
   # Setup static file server
   app.use express.static(__dirname + '/public')
+

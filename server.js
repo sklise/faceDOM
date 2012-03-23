@@ -1,5 +1,5 @@
 (function() {
-  var app, express, fs, gsock, io, m, newmessage, osc, oscServer, sys;
+  var app, express, fs, io, osc, oscServer, sys;
 
   sys = require('sys');
 
@@ -13,19 +13,13 @@
 
   app.listen(3000);
 
-  gsock = '';
-
   osc = require('./lib/osc');
 
-  m = '';
-
-  newmessage = false;
-
-  oscServer = new osc.Server(1337, '0.0.0.0');
+  oscServer = new osc.Server(8338, '0.0.0.0');
 
   io.sockets.on('connection', function(socket) {
     return oscServer.on("message", function(msg, rinfo) {
-      return socket.emit('news', msg);
+      if (msg.length === 15) return socket.emit('raw', msg[14].slice(1, 133));
     });
   });
 
